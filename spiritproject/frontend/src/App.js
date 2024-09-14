@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import Home from "./components/pages/Home";
-import SourceSelection from "./components/pages/SourceSelection";
 import DataVolume from "./components/pages/DataVolume";
 import Analysis from "./components/pages/Analysis";
 
@@ -17,9 +16,6 @@ function App() {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/sourceselection">
-              SourceSelection
-            </Nav.Link>
             <Nav.Link as={Link} to="/datavolume">
               DataVolume
             </Nav.Link>
@@ -32,7 +28,6 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/sourceselection" element={<SourceSelection />} />
         <Route path="/datavolume" element={<DataVolume />} />
         <Route path="/analysis" element={<Analysis />} />
         <Route path="*" element={<h2>404 Not Found</h2>} />

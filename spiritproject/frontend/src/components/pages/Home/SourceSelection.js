@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import NewspaperButton from "./NewspaperButton";
-import SocialButton from "./SocialButton";
+import NewspaperButton from "./SourceSelectionShared/NewspaperButton";
+import SocialButton from "./SourceSelectionShared/SocialButton";
 
-const SourceSelection = () => {
-  const [choice, setChoice] = useState([]);
-
+const SourceSelection = ({ choice, setChoice, setStage }) => {
   const handleNewspaperClick = () => {
     if (choice.includes("newspaper")) {
       setChoice((prevChoices) =>
@@ -30,7 +28,14 @@ const SourceSelection = () => {
       <div className="d-flex justify-content-center align-items-center flex-column">
         <h1>Where do you want to get your data?</h1>
         {choice.length !== 0 && (
-          <button className="btn btn-primary">Choose data volume</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              setStage(2);
+            }}
+          >
+            Choose data volume
+          </button>
         )}
       </div>
       <div className="d-flex flex-row border flex-grow-1">

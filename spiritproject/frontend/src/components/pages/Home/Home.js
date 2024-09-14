@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Prompter from "./Prompter";
+import SourceSelection from "./SourceSelection";
 
 const Home = () => {
   const [prompt, setPrompt] = useState("");
   const [message, setMessage] = useState("");
+  const [choice, setChoice] = useState([]);
+  const [stage, setStage] = useState(0);
+
   useEffect(() => {
     console.log(message);
   }, [message]);
@@ -33,38 +38,26 @@ const Home = () => {
   };
 
   return (
-    <div className="container border border-dark d-flex flex-column gap-5 p-5 text-white">
-      <div className="d-flex flex-column align-items-center">
-        <h1>Spirit</h1>
-        <p>Ask, and I will discover for you.</p>
-      </div>
-      <div className="d-flex flex-row gap-2">
-        <textarea
-          className="form-control"
-          rows="3"
-          placeholder="Type your text here..."
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-        ></textarea>
-        <button
-          className="btn btn-primary"
-          onClick={(event) => sendPreviewContent(event)}
-        >
-          Content Preview
-        </button>
-      </div>
-      <div>
-        <p>Here your preview will be displayed</p>
-      </div>
-      <div className="d-flex flex-column align-items-center">
-        <button
-          className="btn btn-primary"
-          onClick={(event) => sendPrompt(event)}
-        >
-          Discover
-        </button>
-      </div>
-    </div>
+    <>
+      {stage === 0 && (
+        <Prompter
+          prompt={prompt}
+          setPrompt={setPrompt}
+          sendPreviewContent={sendPreviewContent}
+          setStage={setStage}
+        />
+      )}
+
+      {stage === 1 && (
+        <SourceSelection
+          choice={choice}
+          setChoice={setChoice}
+          setStage={setStage}
+        />
+      )}
+
+      {stage === 2 && <div></div>}
+    </>
   );
 };
 
