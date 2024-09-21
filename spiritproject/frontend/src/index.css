@@ -5,18 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('../public/background.jpg');
+  background-size: cover; /* Ensure the background covers the entire body */
+  background-position: center;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-
 html {
   background-color: rgb(37, 49, 87);
-}
-
-.primarycolor {
-  background-color: rgb(34, 43, 73);
 }

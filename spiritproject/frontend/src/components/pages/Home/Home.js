@@ -6,9 +6,15 @@ import SourceSelection from "./SourceSelection";
 const Home = () => {
   const [prompt, setPrompt] = useState("");
   const [message, setMessage] = useState("");
-  const [choice, setChoice] = useState([]);
-  const [stage, setStage] = useState(0);
+  const [choice, setChoice] = useState(["newspaper"]);
+  const [stage, setStage] = useState(1);
 
+  // Variabili opzioni scraping
+  const [amount, setAmount] = useState(2);
+  const [newspaper, setNewspaper] = useState(["repubblica"]);
+  const [social, setSocial] = useState(["twitter"]);
+
+  // Gestione prompt
   useEffect(() => {
     console.log(message);
   }, [message]);
@@ -53,6 +59,12 @@ const Home = () => {
           choice={choice}
           setChoice={setChoice}
           setStage={setStage}
+          amount={amount}
+          newspaper={newspaper}
+          social={social}
+          setAmount={setAmount}
+          setNewspaper={setNewspaper}
+          setSocial={setSocial}
         />
       )}
 

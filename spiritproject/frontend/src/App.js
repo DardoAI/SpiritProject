@@ -8,7 +8,7 @@ import Analysis from "./components/pages/Analysis";
 function App() {
   return (
     <div className="primarycolor text-white min-vh-100">
-      <Navbar expand="lg">
+      {/* <Navbar expand="lg">
         <Navbar.Brand href="/">Spirit</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -24,7 +24,7 @@ function App() {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Navbar>
+      </Navbar> */}
 
       <Routes>
         <Route exact path="/" element={<Home />} />
